@@ -12,6 +12,7 @@
 		9D89539E1FD8247200CF8A77 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D89539C1FD8247200CF8A77 /* Main.storyboard */; };
 		9D8953A01FD8247200CF8A77 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D89539F1FD8247200CF8A77 /* Assets.xcassets */; };
 		9D8953A31FD8247200CF8A77 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9D8953A11FD8247200CF8A77 /* LaunchScreen.storyboard */; };
+		9D8953AB1FD83ED500CF8A77 /* ATR_Events.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 9D8953AA1FD830C400CF8A77 /* ATR_Events.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		9D89539F1FD8247200CF8A77 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9D8953A21FD8247200CF8A77 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9D8953A41FD8247200CF8A77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D8953AA1FD830C400CF8A77 /* ATR_Events.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ATR_Events.jpeg; path = ../../ATR_Events.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				9D8953981FD8247200CF8A77 /* AppDelegate.swift */,
 				9D89539A1FD8247200CF8A77 /* ViewController.swift */,
 				9D89539C1FD8247200CF8A77 /* Main.storyboard */,
+				9D8953AA1FD830C400CF8A77 /* ATR_Events.jpeg */,
 				9D89539F1FD8247200CF8A77 /* Assets.xcassets */,
 				9D8953A11FD8247200CF8A77 /* LaunchScreen.storyboard */,
 				9D8953A41FD8247200CF8A77 /* Info.plist */,
@@ -125,6 +128,7 @@
 			files = (
 				9D8953A31FD8247200CF8A77 /* LaunchScreen.storyboard in Resources */,
 				9D8953A01FD8247200CF8A77 /* Assets.xcassets in Resources */,
+				9D8953AB1FD83ED500CF8A77 /* ATR_Events.jpeg in Resources */,
 				9D89539E1FD8247200CF8A77 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
