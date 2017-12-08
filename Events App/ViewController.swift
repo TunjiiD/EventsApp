@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var textBox: UITextField!
-    @IBOutlet weak var dropDown: UIPickerView!
+    @IBOutlet weak var eventType: UITextField!
+    @IBOutlet weak var eventDrop: UIPickerView!
+    
+    @IBOutlet weak var mapView: MKMapView!
     
     //create list
     var list = ["Wedding", "Birthday Party", "Graduation Celebration", "Baby Shower", "Anniversary", "Other"]
@@ -42,14 +45,14 @@ class ViewController: UIViewController {
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row:Int, inComponent component: Int) {
-        self.textBox.text = self.list[row]
-        self.dropDown.isHidden = true
+        self.eventType.text = self.list[row]
+        self.eventDrop.isHidden = true
     }
     
     func textFieldDidBeginEditing(textField: UITextField)
         {
-            if textField == self.textBox {
-                self.dropDown.isHidden = false
+            if textField == self.eventType {
+                self.eventDrop.isHidden = false
             }
     }
 }
