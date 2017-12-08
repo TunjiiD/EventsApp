@@ -8,22 +8,33 @@
 
 import UIKit
 import MapKit
+import MessageUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MFMailComposeViewControllerDelegate {
 
-    @IBOutlet weak var eventType: UITextField!
-    @IBOutlet weak var eventDrop: UIPickerView!
+    //contact us page text fields
+    
+    @IBOutlet var nameField: UITextField!
+    @IBOutlet var eventType: UITextField!
+    @IBOutlet var eventDrop: UIPickerView!
+    @IBOutlet var eventDateField: UITextField!
+    @IBOutlet var attendeesField: UITextField!
+    @IBOutlet var serviceField: UITextField!
+    @IBOutlet var emailField: UITextField!
+    @IBOutlet var phoneField: UITextField!
+    @IBOutlet var notesField: UITextView!
+    
     
     @IBOutlet weak var mapView: MKMapView!
     
     //create list
     var list = ["Wedding", "Birthday Party", "Graduation Celebration", "Baby Shower", "Anniversary", "Other"]
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view, typically from a nib.
-        
         //Setting the span for the map
         let distanceSpan:CLLocationDegrees = 2000
         
@@ -32,6 +43,7 @@ class ViewController: UIViewController {
         
         //telling the map view to centre on the london location with a span of 2000km
         mapView.setRegion(MKCoordinateRegionMakeWithDistance(londonLocation, distanceSpan, distanceSpan), animated: true)
+        
         
         //reference class for Pin
         let londonPin = LondonAnnotation(title: "Title", subtitle: "Subtitle", coordinate: londonLocation)
@@ -69,5 +81,51 @@ class ViewController: UIViewController {
                 self.eventDrop.isHidden = false
             }
     }
+    
+    //button for contact us page
+    @IBAction func Submit(_ sender: Any) {
+        
+        //configure mail view controller over application and populate email
+        let toRecipients = ["adesa@hotmail.co.uk"]
+        
+        //mail compose view controler
+        let mc: MFMailComposeViewController = MFMailComposeViewController()
+        mc.mailComposeDelegate = self
+        mc.setToRecipients(toRecipients)
+        mc.setSubject(nameField.text!)
+        mc.setMessageBody("Name: \(nameField.text!) \n\nEmail: \(emailField.text!) \n\nPhone_Number: \(phoneField.text!) \n\nEvent_Type: \(eventType.text!), \n\nEvent_Date_Field: \(eventDateField.text!) \n\nAttendees: \(attendeesField.text!) \n\nService: \(serviceField.text!) /n/nNotes: \(notesField.text!)", isHTML: false)
+        self.present(mc, animated: true, completion: nil)
+    }
+    
+    //to come out of mail window
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+        switch result.rawValue {
+        case MFMailComposeResult.cancelled.rawValue:
+            print("Cancelled")
+        case MFMailComposeResult.failed.rawValue:
+            print("Failed")
+        case MFMailComposeResult.saved.rawValue:
+            print("Saved")
+        case MFMailComposeResult.sent.rawValue:
+            print("Sent")
+        default:
+            break
+        }
+        
+        //dissmiss view and go back to application
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    //dismiss keyboard on lower iOS versions
+    @IBAction func dismissKeyboard(_ sender: AnyObject) {
+        
+        self.resignFirstResponder()
+    }
+    
+    
+
 }
 
