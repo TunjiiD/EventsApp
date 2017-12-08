@@ -23,6 +23,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view, typically from a nib.
+        
+        //Setting the span for the map
+        let distanceSpan:CLLocationDegrees = 2000
+        
+        //centre location of the map
+        let londonLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(51.5073509, -0.12775829999998223)
+        
+        //telling the map view to centre on the london location with a span of 2000km
+        mapView.setRegion(MKCoordinateRegionMakeWithDistance(londonLocation, distanceSpan, distanceSpan), animated: true)
+        
+        //reference class for Pin
+        let londonPin = LondonAnnotation(title: "Title", subtitle: "Subtitle", coordinate: londonLocation)
+        mapView.addAnnotation(londonPin)
+        
     }
 
     override func didReceiveMemoryWarning() {
